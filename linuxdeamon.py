@@ -26,7 +26,7 @@ def process_exit(process_name):
 
     # Windows，为避免进程名称被截断，输出格式为csv，使用tasklist /fo csv
    # p_checkresp = os.popen('tasklist /fo csv | find "' + process_name + '"').readlines()
-   # return len(p_checkresp)
+    return len(p_checkresp)
 
 
 # Linx平台调用os.system方法启动命令/Win平台调用os.startfile方法启动命令，传入命令路径，无返回值
