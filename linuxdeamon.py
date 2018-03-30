@@ -21,7 +21,7 @@ p_path = ""
 
 # Linux平台调用ps命令/Win平台调用tasklist命令，判断进程是否存在，传入进程名称，返回为查询得到的进程个数
 def process_exit(process_name):
-    Linux
+    #Linux
     p_checkresp = os.popen('ps aux | grep "' + process_name + '" | grep -v grep').readlines()
 
     # Windows，为避免进程名称被截断，输出格式为csv，使用tasklist /fo csv
