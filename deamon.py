@@ -10,7 +10,7 @@ import sys
 # p_path = sys.argv[2]
 
 # Linux
-# p_name = ""
+# p_name = "teamviewer"
 # p_path = ""
 
 
