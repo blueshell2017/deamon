@@ -1,4 +1,3 @@
-# coding=gbk  
 import requests
 import logging
 def recon():
@@ -8,7 +7,7 @@ def recon():
     headers={'User-Agent':user_Agent}
     data = {"DDDDD":"lcl",
             "upass":"12345678",
-            "0MKKey":"µÇÂ¼ Login"}
+            "0MKKey":"ç™»é™† Login"}
 
     try:
         r = requests.get("https://www.baidu.com/",headers=headers,timeout=3)
