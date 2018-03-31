@@ -2,7 +2,9 @@
 # -*- coding:utf-8 -*-
 import os
 import sys
-
+import logging
+import time
+import subprocess
 # 初始化进程名称和命令路径
 
 # 使用参数方式传递程序名称和程序路径
@@ -18,7 +20,7 @@ import sys
 p_name = "TeamViewer.exe"
 p_path = "C:\\Program Files (x86)\\TeamViewer\\TeamViewer.exe"
 
-
+logging.basicConfig(filename='logger2.log', level=logging.INFO)
 # Linux平台调用ps命令/Win平台调用tasklist命令，判断进程是否存在，传入进程名称，返回为查询得到的进程个数
 def process_exit(process_name):
     # Linux
@@ -44,25 +46,25 @@ def process_exec(process_path):
 # 主函数
 if __name__ == '__main__':
 
-    # 查询进程个数大于1，返回0，不做任何操作，退出
     if process_exit(p_name) >= 1:
-        print(0)
+        logging.info(str(time.localtime(time.time()))+" "+"0")
         sys.exit(0)
 
     # 查询进程个数等于0
     elif process_exit(p_name) == 0:
         # 执行启动命令
-        process_exec(p_path)
+        process_exec(p_name)
+        time.sleep(3)
         # 查询进程个数大于1，返回1，启动成功，退出
         if process_exit(p_name) >= 1:
-            print(1)
+            logging.info(str(time.localtime(time.time()))+" "+"1")
             sys.exit(0)
         # 启动失败，返回2，退出
         else:
-            print(2)
+            logging.warning(str(time.localtime(time.time()))+" "+"2")
             sys.exit(0)
 
-    # 其他问题，返回2，退出
+    # 其他问题，返回3，退出
     else:
-        print(2)
+        logging.warning(str(time.localtime(time.time()))+" "+"3")
         sys.exit(0)

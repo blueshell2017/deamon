@@ -1,6 +1,7 @@
 #coding:utf-8
 import requests
 import logging
+import time
 def recon():
    
     logging.basicConfig(filename='logger.log', level=logging.INFO)
@@ -12,10 +13,10 @@ def recon():
 
     try:
         r = requests.get("https://www.baidu.com/",headers=headers,timeout=3)
-        logging.info("Every thing is ok")
+        logging.info(str(time.localtime(time.time()))+"Every thing is ok")
     except:
         r = requests.post("http://192.168.100.3/", data=data, headers=headers)
-        logging.info(r.status_code)
+        logging.info(str(time.localtime(time.time()))+ str(r.status_code))
 
 
 
