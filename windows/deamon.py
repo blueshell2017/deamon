@@ -53,7 +53,7 @@ if __name__ == '__main__':
     # 查询进程个数等于0
     elif process_exit(p_name) == 0:
         # 执行启动命令
-        process_exec(p_name)
+        process_exec(p_path)
         time.sleep(3)
         # 查询进程个数大于1，返回1，启动成功，退出
         if process_exit(p_name) >= 1:
